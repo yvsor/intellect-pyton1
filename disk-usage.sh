@@ -8,6 +8,6 @@ else
 fi
 echo -e "the heaviest subdir of $dir is:"
 top1=$(du -S $dir 2>/dev/null | sort -rn | head -n 1 | awk '{print $2 "\n"}')
-disk=$(du -h $top1 | awk '{print  $1}')
+disk=$(du -Sh -d 0  $top1 2>/dev/null | sort -rn | head -n 1 | awk '{print  $1}')
 echo -e "$top1 with disk usage is $disk"
 
